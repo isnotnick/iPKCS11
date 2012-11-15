@@ -16,7 +16,7 @@
     <div class="wrapper">
       <header>
         <h1>iPKCS11</h1>
-        <p>This project aims to makes it possible to use an iPhone for storing private keys used in programs such as SSH. It communicates with your computer over HTTPS and connects to SSH with the PKCS11 protocol.</p>
+        <p>This project aims to makes it possible to use an iPhone for storing private keys used in programs such as SSH. It communicates with the computer over HTTPS and connects to SSH with the PKCS11 protocol.</p>
 
         <p class="view"><a href="https://github.com/demute/iPKCS11">View the Project on GitHub <small>demute/iPKCS11</small></a></p>
 
@@ -28,24 +28,17 @@
         </ul>
       </header>
       <section>
-        <h3>Welcome to GitHub Pages.</h3>
+        <h3>Store all your keys on your iPhone.</h3>
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+        <p>Imagine you have generated a new keypair with ssh-keygen and you have got an id_rsa and id_rsa.pub file in your ~/.ssh directory. Let's assume you chosed to protect your private key with a passphrase (otherwise any program that have access to your disk can steal the key and login all servers you have put your public on). Now suppose your computer is getting compromised and someone gets access to the whole system, even your keyboard. Your private key is smoked and the consequences could be disastrous. Let's come up with a solution.</p>
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
+        <p>What if all keys where stored on an iPhone and the ssh command could talk to the phone over a common protocol. It could then ask the phone to sign a message with the private key and send the signed message back. In that way, the private keys would never have to leave the phone and the app could even show a message to the user and ask for permission. This is what iPKCS is all about.
+
+<pre><code>$ git clone https://github.com/demute/iPKCS11.git
 </code></pre>
 
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
-
-<h3>Designer Templates</h3>
-
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
-
-<h3>Rather Drive Stick?</h3>
-
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+<h3>How it works</h3>
+<p>ssh let you specify a PKCS11-compatible module with the <pre>-I</pre> option, so run it with <pre>-I ./iPKCS11.so<pre>. This module wraps the needed functions into JSON code which is sent over an HTTPS link to a listening server (the server URL and the SSL certificate is read from config files in your homedir). Now, practically any HTTPS server can be built and currently a perl server exist to demonstrate how the PKCS11 protocol is wrapped to JSON. The iPhone app is yet to be written).</p>
 
 <h3>Authors and Contributors</h3>
 
