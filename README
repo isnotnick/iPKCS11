@@ -1,0 +1,29 @@
+Current state of the project:
+The PKCS11 module wraps every C-call to a JSON packet sent over HTTPS to the
+server specified in ~/.ipkcs11url. The server must use the cert stored in
+~/.ipkcs11server.crt.
+
+A test server has been written in Perl to demonstrate how the JSON protocol works.
+
+TODO: An iPhone app.
+
+----------
+TEST SETUP
+----------
+
+TERMINAL 1:
+$ cd perl_server
+$ cd KEYS
+$ ssh-keygen
+[name the key to something so that they are stored in this dir]
+$ ./pub2pem yourkey.pub > yourkey.pem
+$ cd ..
+$ cd CERTS
+$ ./create_certs.sh
+$ cd ..
+$ ./perl_server.pl
+
+TERMINAL 2:
+$ cd ssh_module
+$ make
+$ ssh -I ./pkcs11_module.so 0
