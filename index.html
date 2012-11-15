@@ -38,7 +38,7 @@
 </code></pre>
 
 <h3>How it works</h3>
-<p>ssh let you specify a PKCS11-compatible module with the <pre>-I</pre> option, so run it with <pre>-I ./iPKCS11.so<pre>. This module wraps the needed functions into JSON code which is sent over an HTTPS link to a listening server (the server URL and the SSL certificate is read from config files in your homedir). Now, practically any HTTPS server can be built and currently a perl server exist to demonstrate how the PKCS11 protocol is wrapped to JSON. The iPhone app is yet to be written).</p>
+<p>ssh let you specify a PKCS11-compatible module with the -I option, so run it with ssh -I ./iPKCS11.so. This module wraps the needed functions into JSON code which is sent over an HTTPS link to a listening server (the server URL and the SSL certificate is read from config files in your homedir). Now, practically any HTTPS server can be built and currently a perl server exist to demonstrate how the PKCS11 protocol is wrapped to JSON. The iPhone app is yet to be written).</p>
 
 <h3>Authors and Contributors</h3>
 
