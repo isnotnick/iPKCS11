@@ -28,7 +28,7 @@ cd ..
 
 Terminal 2, (client side):
 
-echo '127.0.0.1' > ~/.iPKCS11.url
+echo 'https://127.0.0.1:8000' > ~/.iPKCS11.url
 cd ssh_module
 make
 ssh -I ./pkcs11_module.so 0
