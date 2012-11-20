@@ -13,6 +13,7 @@ TEST SETUP
 
 Terminal 1, (server side):
 
+
 cd perl_server/KEYS
 ssh-keygen -f id_rsa
 cat id_rsa.pub >> ~/.ssh/authorized_keys
@@ -22,9 +23,10 @@ cd ../CERTS
 cp server.crt ~/.iPKCS11.server.crt
 cp server.crt ~/.pkcs11server.crt
 cd ..
+# Prerequisites (Perl modules):
+curl -L http://cpanmin.us | perl - --sudo App::cpanminus
+sudo cpanm JSON HTTP::Daemon::SSL Switch
 ./https_server.pl
-
-
 
 Terminal 2, (client side):
 
