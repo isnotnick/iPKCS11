@@ -31,4 +31,4 @@ Terminal 2, (client side):
 echo 'https://127.0.0.1:8000' > ~/.iPKCS11.url
 cd ssh_module
 make
-ssh -I ./pkcs11_module.so 0
+ssh -I ./pkcs11_module.so 127.0.0.1
