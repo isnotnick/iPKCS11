@@ -1,7 +1,7 @@
 Current state of the project:
 The PKCS11 module wraps every C-call to a JSON packet sent over HTTPS to the
 server specified in ~/.iPKCS11.url. The server must use the cert stored in
-~/.ipkcs11server.crt.
+~/.iPKCS11.server.crt
 
 A test server has been written in Perl to demonstrate how the JSON protocol works.
 
